@@ -186,7 +186,7 @@ public class Cliente extends Thread {
     }
     
     // ------------------------------------------
-    // Metodos
+    // Métodos
     // ------------------------------------------
     
     /**
@@ -219,13 +219,13 @@ public class Cliente extends Thread {
     }
     
     /**
-     * Calcula el codigo HMAC, utilizando el algoritmo "ALGh", correspondiente a
+     * Calcula el código HMAC, utilizando el algoritmo "ALGh", correspondiente a
      * un {} de datos
      *
      * @param datos
      *            - bytes de los datos a los cuales se les quieren calcular el
-     *            codigo.
-     * @return codigo HMAC en bytes.
+     *            código.
+     * @return código HMAC en bytes.
      */
     private byte[] hashCryptoCode(byte[] datos) {
         try {
@@ -235,9 +235,11 @@ public class Cliente extends Thread {
             Mac mac = Mac.getInstance(algoritmo);
             mac.init(key);
             byte[] rawHmac = mac.doFinal(datos);
+            
             return rawHmac;
         } catch (Exception e) {
             e.printStackTrace();
+            
             return null;
         }
     }

@@ -8,6 +8,7 @@ public class CifradorAsimetrico {
 	// -------------------------------
 	// Atributos
 	// -------------------------------
+    
 	private final static String ALGORITMO = Cliente.ALGa;
 	private KeyPair keyPair;
 
@@ -20,7 +21,7 @@ public class CifradorAsimetrico {
 	}
 
 	// -------------------------------
-	// Metodos
+	// Métodos
 	// -------------------------------
 
 	public byte[] cifrar(byte[] clearText, Key llavePub) {
@@ -28,9 +29,11 @@ public class CifradorAsimetrico {
 			Cipher cipher = Cipher.getInstance(ALGORITMO);
 			cipher.init(Cipher.ENCRYPT_MODE, llavePub);
 			byte[] cipheredText = cipher.doFinal(clearText);
+                        
 			return cipheredText;
 		} catch (Exception e) {
 			System.out.println("Excepcion: " + e.getMessage());
+                        
 			return null;
 		}
 	}
@@ -40,9 +43,11 @@ public class CifradorAsimetrico {
 			Cipher cipher = Cipher.getInstance(ALGORITMO);
 			cipher.init(Cipher.DECRYPT_MODE, keyPair.getPrivate());
 			byte[] clearText = cipher.doFinal(cipheredText);
+                        
 			return clearText;
 		} catch (Exception e) {
 			System.out.println("Excepcion: " + e.getMessage());
+                        
 			return null;
 		}
 	}

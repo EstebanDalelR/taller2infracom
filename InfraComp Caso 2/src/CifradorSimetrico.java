@@ -2,6 +2,7 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 
 public class CifradorSimetrico {
+    
 	// -------------------------------
 	// Atributos
 	// -------------------------------
@@ -18,7 +19,7 @@ public class CifradorSimetrico {
 	}
 
 	// -------------------------------
-	// Metodos
+	// Métodos
 	// -------------------------------
 
 	public byte[] cifrar(byte[] clearText) {
@@ -27,9 +28,11 @@ public class CifradorSimetrico {
 			Cipher cipher = Cipher.getInstance(PADDING);
 			cipher.init(Cipher.ENCRYPT_MODE, desKey);
 			cipheredText = cipher.doFinal(clearText);
+                        
 			return cipheredText;
 		} catch (Exception e) {
 			System.out.println("Excepcion: " + e.getMessage());
+                        
 			return null;
 		}
 	}
@@ -39,9 +42,11 @@ public class CifradorSimetrico {
 			Cipher cipher = Cipher.getInstance(PADDING);
 			cipher.init(Cipher.DECRYPT_MODE, desKey);
 			byte[] clearText = cipher.doFinal(cipheredText);
+                        
 			return clearText;
 		} catch (Exception e) {
 			System.out.println("Excepcion: " + e.getMessage());
+                        
 			return null;
 		}
 	}
